@@ -238,7 +238,7 @@
           margin-top: -30%;
           z-index: 999;
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
           display: none;
       }
       #booking {

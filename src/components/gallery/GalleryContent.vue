@@ -16,7 +16,7 @@
 
                     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
                 </p>
-                <a href="#" class="link-to-website btn btn-light">View Gallery <i class="bi bi-arrow-right"></i></a>
+                <a href="/gallery-detail" class="link-to-website btn btn-light">View Gallery <i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
         <div class="container row py-5 mx-auto">
@@ -26,7 +26,7 @@
                 <p>
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
                 </p>
-                <a href="#" class="link-to-website btn btn-light">View Gallery <i class="bi bi-arrow-right"></i></a>
+                <a href="/gallery-detail" class="link-to-website btn btn-light">View Gallery <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="col-sm-6 my-4 py-md-0">
                 <img src="@/assets/images/gallery-hero-2.png" alt="gallery-img" class="img-fluid">

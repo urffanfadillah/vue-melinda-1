@@ -1,18 +1,18 @@
 <script>
     import HeroText from "@/components/utils/HeroText.vue"
     import FooterContent from "@/components/utils/FooterContent.vue"
-    import ContentImages from "@/components/utils/ContentImages.vue"
     export default {
         data() {
             return {
                 context: {
-                    subTitle: 'Melinda Hospital Carrers',
-                    title: 'Join With Melinda Family Team',
+                    subTitle: 'Melinda Hospital Auction',
+                    title: 'Join Auction Job Melinda Hospital',
                     paragraph: `Health is the main key to a woman's beauty and happiness. Melinda Hospital is sincerely committed to realizing every woman's dream to look beautiful, healthy and happy.`
                 },
                 careerTags: [
-                    { id:1, name:"IT Department" },
-                    { id:2, name:"Pembangunan & Konstruksi"},                    
+                    { id:1, name:"Pembangunan & Konstruksi" },
+                    { id:2, name:"Pengadaan Barang"},
+                    { id:3, name:"Informasi & Teknologi"},               
                 ],
                 careerTagSelected: 'Semua',
                 search: '',
@@ -20,44 +20,86 @@
                     {
                         id: 1,
                         date: "12 Januari 2022",
-                        title: "IT Support & Helpdesk",
+                        title: "Proyek Ruangan Tipe A",
                         tags: "IT Department",
-                        is_avaliable: true,
+                        price: "Rp. 340.000.000"
                     },
                     {
                         id: 2,
                         date: "12 Januari 2022",
-                        title: "DevOps and SysAdmin",
-                        tags: "IT Department",
-                        is_avaliable: true,
+                        title: "Pembangunan Cancer Center ",
+                        tags: "Pembangunan & Konstruksi",
+                        price: "Rp. 340.000.000"
                     },
                     {
                         id: 3,
                         date: "12 Januari 2022",
-                        title: "Administrator Website",
-                        tags: "IT Department",
-                        is_avaliable: false,
+                        title: "Proyek Ruangan Nursing",
+                        tags: "Pembangunan & Konstruksi",
+                        price: "Rp. 340.000.000"
                     },
                     {
                         id: 4,
                         date: "12 Januari 2022",
-                        title: "Senior Arsitek",
-                        tags: "Pembangunan & Konstruksi",
-                        is_avaliable: true,
+                        title: "Pengadaan Obat & Vitamin",
+                        tags: "Pengadaan Barang",
+                        price: "Rp. 340.000.000"
                     },
                     {
                         id: 5,
                         date: "12 Januari 2022",
-                        title: "Junior Arsitek",
-                        tags: "Pembangunan & Konstruksi",
-                        is_avaliable: true,
+                        title: "Integrasi Sistem BPJS",
+                        tags: "Informasi & Teknologi",
+                        price: "Rp. 340.000.000"
                     },
                     {
                         id: 6,
                         date: "12 Januari 2022",
-                        title: "IOS Mobile Developer",
+                        title: "Pembangunan Cancer Center",
+                        tags: "Pembangunan & Konstruksi",
+                        price: "Rp. 340.000.000"
+                    },
+                    {
+                        id: 7,
+                        date: "12 Januari 2022",
+                        title: "Proyek Ruangan Tipe A",
                         tags: "IT Department",
-                        is_avaliable: true,
+                        price: "Rp. 340.000.000"
+                    },
+                    {
+                        id: 8,
+                        date: "12 Januari 2022",
+                        title: "Pembangunan Cancer Center ",
+                        tags: "Pembangunan & Konstruksi",
+                        price: "Rp. 340.000.000"
+                    },
+                    {
+                        id: 9,
+                        date: "12 Januari 2022",
+                        title: "Proyek Ruangan Tipe A",
+                        tags: "IT Department",
+                        price: "Rp. 340.000.000"
+                    },
+                    {
+                        id: 10,
+                        date: "12 Januari 2022",
+                        title: "Pembangunan Cancer Center ",
+                        tags: "Pembangunan & Konstruksi",
+                        price: "Rp. 340.000.000"
+                    },
+                    {
+                        id: 11,
+                        date: "12 Januari 2022",
+                        title: "Proyek Ruangan Nursing",
+                        tags: "Pembangunan & Konstruksi",
+                        price: "Rp. 340.000.000"
+                    },
+                    {
+                        id: 12,
+                        date: "12 Januari 2022",
+                        title: "Pengadaan Obat & Vitamin",
+                        tags: "Pengadaan Barang",
+                        price: "Rp. 340.000.000"
                     },
                 ]
             }
@@ -81,11 +123,11 @@
         },
         methods: {
             goToDetail() {
-                this.$router.push('/career-detail');
+                this.$router.push('/autcion-jobs-detail');
             }
         },
         components: {
-            HeroText, FooterContent, ContentImages
+            HeroText, FooterContent
         }
     }
 </script>
@@ -114,15 +156,11 @@
                                 <div class="card mb-4">                            
                                     <div class="card-body d-flex flex-column justify-content-center">
                                         <span class="date flex-grow-1 text-decoration-none">{{career.date}}</span>
-                                        <a href="/career-detail" class="btn btn-primary stretched-link">Go somewhere</a>
+                                        <a href="/auction-jobs-detail" class="btn btn-primary stretched-link">Go somewhere</a>
                                         <h5 class="card-title text-dark">{{career.title}}</h5>
                                         <h5 class="tags">{{career.tags}}</h5>
-                                        <span class="status" v-if="career.is_avaliable">
-                                            Job Still Available
-                                        </span>
-                                        <span class="status" v-else>
-                                            Job Not Available
-                                        </span>                                
+                                        <span class="status" v-text="career.price">
+                                        </span>                        
                                     </div>                            
                                 </div>                            
                             </div> 
@@ -130,18 +168,23 @@
                     </div>
                 </div>
             </div>
+            <nav class="mx-auto d-flex">
+                <ul class="pagination mx-auto">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
-    <ContentImages 
-            isBlue
-            subTitle="What Member Says"
-            title="“The Best Place and Friendly Team I Ever Work With”"
-            paragraph="Never been easer to adapt with new team and place, but in here i have a alot of care and knowledge experience with these best team."
-            textWhite
-            quote="Paul Johnson"
-        >
-        <img src="@/assets/images/career-hero-1.png" alt="services" class="img-fluid" style="object-fit: cover;">    
-    </ContentImages>
     <FooterContent />
 </template>
 

@@ -1,41 +1,49 @@
 <script>
+    import FsLightbox from "fslightbox-vue/v3";
     export default {
-        data(){
+        components: { FsLightbox },
+        data() {
             return {
-                rooms : [
-                    { id: 1, title: 'Three Bedroom', imgUrl: 'https://dummyimage.com/400x400/000/fff' },
-                    { id: 2, title: 'Two Bedroom', imgUrl: 'https://dummyimage.com/400x400/000/fff' },
-                    { id: 3, title: 'Utama Room', imgUrl: 'https://dummyimage.com/400x400/000/fff' },
-                    { id: 4, title: 'VIP Room', imgUrl: 'https://dummyimage.com/400x400/000/fff' },
-                    { id: 5, title: 'Suite Room', imgUrl: 'https://dummyimage.com/400x400/000/fff' },
-                    { id: 6, title: 'Suite Room Balcony 1', imgUrl: 'https://dummyimage.com/400x400/000/fff' },
-                    { id: 7, title: 'Suite Room Balcony 2', imgUrl: 'https://dummyimage.com/400x400/000/fff' },
+                toggler: false,
+                images : [
+                        { id: 1, title: 'Example Gallery', imgUrl: 'https://dummyimage.com/400x400/000/fff&text=1' },
+                        { id: 2, title: 'Example Gallery', imgUrl: 'https://dummyimage.com/400x400/000/fff&text=2' },
+                        { id: 3, title: 'Example Gallery', imgUrl: 'https://dummyimage.com/400x400/000/fff&text=3' },
+                        { id: 4, title: 'Example Gallery', imgUrl: 'https://dummyimage.com/400x400/000/fff&text=4' },
+                        { id: 5, title: 'Example Gallery', imgUrl: 'https://dummyimage.com/400x400/000/fff&text=5' },
+                        { id: 6, title: 'Example Gallery', imgUrl: 'https://dummyimage.com/400x400/000/fff&text=6' },
+                        { id: 7, title: 'Example Gallery', imgUrl: 'https://dummyimage.com/400x400/000/fff&text=7' },
                 ],
-            }
-        },
-        methods: {
-            // buat function yang dimana ketika diklik maka akan dialihkan ke halaman detail
-            goToDetail(){
-                this.$router.push('/our-room-detail'); 
+                imagesNoText : [
+                    'https://dummyimage.com/600x400/000/fff&text=1',
+                    'https://dummyimage.com/600x400/000/fff&text=2',
+                    'https://dummyimage.com/600x400/000/fff&text=3',
+                    'https://dummyimage.com/600x400/000/fff&text=4',
+                    'https://dummyimage.com/600x400/000/fff&text=5',
+                    'https://dummyimage.com/600x400/000/fff&text=6',
+                    'https://dummyimage.com/600x400/000/fff&text=7',
+                ]            
             }
         }
     }
 </script>
 
 <template>
-    <section id="rooms" class="background-cream container-fluid py-5 px-xl-5">
-        <p class="text-center content-sub-title my-4">Melinda Hospital Mother Care</p>        
-        <h1 class="text-center content-title my-4">Melinda Inspire Room and Balcony</h1>
-        <p class="text-center fw-light my-4">
-            Melinda Fertility Center is part of the Melinda Hospital which deals with fertility, both male and female. Melinda Fertility Center is supported by very supportive facilities, friendly service and
-        </p>
-        <div class="mx-auto container row">            
+    <section id="rooms" class="container-fluid py-5 px-xl-5">        
+        <div class="mx-auto container row">
             <!-- Card Overlay -->
-            <div class="col-sm-4 card bg-transparent text-white mb-4" v-for="room in rooms" :key="room.id" @click="goToDetail(room.id)">
-                <img v-bind:src="room.imgUrl" class="card-img" :alt="room.title">
+            <div class="col-sm-4 card bg-transparent text-white mb-4" v-for="image in images" :key="image.id" @click="toggler = !toggler">
+                <img v-bind:src="image.imgUrl" class="card-img" :alt="image.title">
                 <div class="card-img-overlay position-relative">
-                    <h5 class="card-title position-absolute bottom-100 start-10" v-text="room.title"></h5>
+                    <h5 class="card-title position-absolute bottom-100 start-10" v-text="image.title"></h5>
                 </div>
+            </div>            
+            <!-- Lightbox -->
+            <div>
+                <FsLightbox
+                    :toggler="toggler"
+                    :sources="imagesNoText"
+                />
             </div>
         </div>
     </section>

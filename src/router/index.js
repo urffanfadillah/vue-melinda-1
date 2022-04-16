@@ -11,6 +11,12 @@ import DoctorsView from '../views/DoctorsView.vue'
 import CareerView from '../views/CareerView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import DashboardView from '../views/DashboardView.vue'
+import GalleryDetail from '../views/GalleryDetail.vue'
+import OurRoomDetail from '../views/OurRoomDetail.vue'
+import CareerDetail from '../views/CareerDetail.vue'
+import ArticlesView from '../views/ArticlesView.vue'
+import AuctionJobsView from '../views/AuctionJobsView.vue'
+import AuctionJobsDetailView from '../views/AuctionJobsDetailView.vue'
 
 const routes = [
   {
@@ -49,6 +55,11 @@ const routes = [
     component: () => import('../views/ProfileView.vue')
   },
   {
+    path: '/articles',
+    name: 'articles',
+    component: ArticlesView
+  },
+  {
     path: '/artikel/:id',
     name: 'artikel',    
     component: DetailArticleView,
@@ -81,6 +92,31 @@ const routes = [
     name: 'dashboard',
     component: DashboardView
   },
+  {
+    path: '/gallery-detail/',
+    name: 'gallery-detail',
+    component: GalleryDetail
+  },
+  {
+    path: '/our-room-detail',
+    name: 'our-room-detail',
+    component: OurRoomDetail
+  },
+  {
+    path: '/career-detail',
+    name: 'career-detail',
+    component: CareerDetail
+  },
+  {
+    path: '/auction-jobs',
+    name: 'auction-jobs',
+    component: AuctionJobsView
+  },
+  {
+    path: '/auction-jobs-detail',
+    name: 'auction-jobs-detail',
+    component: AuctionJobsDetailView
+  },  
   { path: '/404', component: NotFoundView },  
   { path: '/:catchAll(.*)', redirect: '/404' },
 ]

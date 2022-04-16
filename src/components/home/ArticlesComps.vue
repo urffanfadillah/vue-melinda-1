@@ -1,5 +1,5 @@
 <template>
-    <div class="container hospital-nearby">
+    <div class="container hospital-nearby my-4">
         <HeadingContent 
             subTitle="Melinda Hospital Articles"
             title="Latest News"
